@@ -123,31 +123,31 @@ func (g *Generator) generate(typeName string) {
 	}
 
 	g.WriteF("type %s struct {\n", structTypeName)
-	g.WriteString("\tIntVal int `json:\"intVal\"`\n")
-	g.WriteString("\tStrVal string `json:\"strVal\"`\n")
+	g.WriteString("\tintVal int `json:\"intVal\"`\n")
+	g.WriteString("\tstrVal string `json:\"strVal\"`\n")
 	g.WriteString("}\n")
 	g.WriteString("\n")
 
 	g.WriteF("func (receiver *%s)GetIntVal() int {\n", structTypeName)
-	g.WriteString("\treturn receiver.IntVal\n")
+	g.WriteString("\treturn receiver.intVal\n")
 	g.WriteString("}\n")
 	g.WriteString("\n")
 
 	g.WriteF("func (receiver *%s)GetStrVal() string {\n", structTypeName)
-	g.WriteString("\treturn receiver.StrVal\n")
+	g.WriteString("\treturn receiver.strVal\n")
 	g.WriteString("}\n")
 	g.WriteString("\n")
 
-	g.WriteF("func %sFunc(intVal int, strVal string) %s {\n", typeName, structTypeName)
-	g.WriteF("\treturn %s{\n", structTypeName)
-	g.WriteF("\t\tIntVal: %s,\n", "intVal")
-	g.WriteF("\t\tStrVal: %s,\n", "strVal")
+	g.WriteF("func %sFunc(intVal int, strVal string) *%s {\n", typeName, structTypeName)
+	g.WriteF("\treturn &%s{\n", structTypeName)
+	g.WriteF("\t\tintVal: %s,\n", "intVal")
+	g.WriteF("\t\tstrVal: %s,\n", "strVal")
 	g.WriteString("\t}\n")
 	g.WriteString("}\n")
 	g.WriteString("\n")
 
 	g.WriteF("func (receiver *%s) String() string {\n", structTypeName)
-	g.WriteF("\treturn \"%s(%s: \"+ %s +\", %s: \"+ %s +\")\"\n", structTypeName, "IntVal", "strconv.Itoa(receiver.IntVal)", "StrVal", "receiver.StrVal")
+	g.WriteF("\treturn \"%s(%s: \"+ %s +\", %s: \"+ %s +\")\"\n", structTypeName, "intVal", "strconv.Itoa(receiver.intVal)", "strVal", "receiver.strVal")
 	g.WriteString("}\n")
 	g.WriteString("\n")
 
