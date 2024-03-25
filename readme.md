@@ -28,7 +28,7 @@ go generate test.go
 
 或者点击编辑器执行按键
 
-![](./20240313-214109.jpeg)
+![](https://github.com/jinfeijie/gen-const/assets/8290380/8ab4e5e9-5440-4759-ae69-5ae0b8b87b83)
 
 3. 将会生成文件`httpcode_gen.go`
 ```golang

@@ -1,6 +1,6 @@
 module github.com/jinfeijie/gen-const
 
-go 1.21.4
+go 1.18
 
 require golang.org/x/tools v0.19.0
 
